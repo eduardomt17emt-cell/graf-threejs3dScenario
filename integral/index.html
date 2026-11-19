@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Patio Urbano 3D | Graficación</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23232a35'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%F0%9F%8F%83%3C/text%3E%3C/svg%3E">
+	<style>
+		* { box-sizing: border-box; }
+		html, body { margin: 0; height: 100%; background: #14171c; color: #e8e8e8; font-family: Arial, Helvetica, sans-serif; }
+		body { display: flex; flex-direction: column; }
+		#app { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+		#app canvas { display: block; }
+		#hud { position: absolute; top: 10px; left: 12px; padding: 8px 12px; background: rgba(20,23,28,.65); border-radius: 8px; font-size: 14px; line-height: 1.5; pointer-events: none; }
+		#hud b { color: #ff9f43; }
+		#estado { color: #ffd8a8; }
+		footer { background: #14171c; border-top: 3px solid #ff9f43; padding: 10px 18px 12px; display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: flex-start; }
+		footer .info { flex: 1 1 320px; }
+		footer h1 { margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 26px; color: #ff9f43; }
+		footer p { margin: 2px 0; font-size: 14px; }
+		footer .tablero { flex: 2 1 480px; }
+		footer h2 { margin: 0 0 6px; font-size: 15px; color: #ffd8a8; }
+		.teclas { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 18px; font-size: 13px; }
+		kbd { display: inline-block; min-width: 22px; padding: 1px 6px; margin-right: 4px; border: 1px solid #ff9f43; border-radius: 4px; background: #232a35; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center; }
+	</style>
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "../build/three.module.js",
+				"three/addons/": "../examples/jsm/"
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="app">
+		<div id="hud">
+			<div><b>Acción:</b> <span id="accion">cargando…</span></div>
+			<div><b>Cámara:</b> <span id="camara">fija</span></div>
+			<div id="estado">Cargando escena…</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="info">
+			<h1>Patio Urbano 3D: Entrenamiento al Atardecer</h1>
+			<p><b>Integrante:</b> Martínez Trujillo Eduardo</p>
+			<p><b>Número de control:</b> 23200864</p>
+			<p>Graficación · Ingeniería en Sistemas Computacionales · Instituto Tecnológico de Pachuca</p>
+		</div>
+		<div class="tablero">
+			<h2>Tablero de instrucciones</h2>
+			<div class="teclas">
+				<div><kbd>W</kbd><kbd>↑</kbd> Avanzar (mantener); al soltar se detiene</div>
+				<div><kbd>Shift</kbd> + <kbd>W</kbd> Correr</div>
+				<div><kbd>Espacio</kbd> Saltar</div>
+				<div><kbd>Q</kbd> Girar 90° a la izquierda</div>
+				<div><kbd>E</kbd> Girar 90° a la derecha</div>
+				<div><kbd>B</kbd> Bailar (breakdance)</div>
+				<div><kbd>R</kbd> Reiniciar los objetos</div>
+				<div><kbd>C</kbd> Cámara: fija / sigue al personaje</div>
+				<div><kbd>M</kbd> Música (on/off)</div>
+				<div><kbd>Ratón</kbd> Arrastrar: cámara · Rueda: zoom</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="module" src="./main.js"></script>
+</body>
+</html>
